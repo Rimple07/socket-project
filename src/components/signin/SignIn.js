@@ -5,7 +5,7 @@ import SignInForm from "./SignInForm";
 
 function SignIn() {
 	return (
-		<div>
+		<div className="main-container-login">
 			<div className="video-container">
 				<video className="videoTag" autoPlay loop muted>
 					<source src={sample} type="video/mp4" />

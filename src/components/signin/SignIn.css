@@ -1,42 +1,138 @@
 .videoTag{
-    max-height: 100%;
-    max-width: 100%;
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.video-container {
+  position: fixed;
+  max-height: 100%;
+  max-width: 100%;
+}
+.signin-form-container {
+  position: absolute;
+  display: inline-flex;
+  margin: 10vh;
+}
+
+.signin-form {
+  width: 480px;
+  height: 688px;
+  flex-shrink: 0;
+  border: 2px;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0px 0px 39px 0px rgba(0, 0, 0, 0.11);
+  padding: 0px 55px
+}
+
+.username-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.password-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.ant-input-affix-wrapper {
+  border-radius: 28px;
+  border: 2px solid #ccc;
+  width: 424px;
+  height: 50px;
+  flex-shrink: 0;
+}
+.ant-btn-primary {
+  border-radius: 28px;
+  background: #f6d707;
+  width: 424px;
+  height: 50px;
+  flex-shrink: 0;
+}
+.ant-checkbox + span {
+  color: #959595;
+  font-family: Roboto;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.login-form-forgot {
+  color: #565656 !important;
+  font-family: Roboto;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.login-form-button {
+  color: #292929;
+  font-family: Roboto;
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.headings {
+  color: #393939;
+  font-family: Inter;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: capitalize;
+  margin: 5px 15px 15px
+}
+.login-heading {
+  color: #242424;
+  font-family: Inter;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: capitalize;
+  margin: 2vh 19vh 2vh 0vh;
+}
+.main-login-heading {
+  color: #595959;
+  font-family: Inter;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500; 
+  line-height: normal;
+  text-transform: capitalize;
+  margin:2vh 22vh 0vh 0vh;
+}
+.logo-container {
+  width: 262px;
+  height: 106px;
+  flex-shrink: 0;
+  background: url("../assets/images/logo.png"), lightgray 50% / cover no-repeat;
+  margin: 9vh 0vh 0;
+}
+.main-container-login {
+  flex-shrink: 0;
+  height: 100vh;
+}
+.headings-container-login {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+
+}
+.remember-forgot-container{
+    display: flex;
+    gap:18vh;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0px;
+  
     
-}
-.video-container{
-    position: absolute;
-}
-.signin-form-container{
-    position: absolute;
-    height: 20px;
-    display:inline-flex;
-    margin: 20vh;
-   
-}
-
-.signin-form{
-    background-color: white;
-    height: 60vh;
-    width: 50vh;
-    display: grid;
-    border: 2px;
-    border-radius: 10px;
-}
-
-.username-container{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.password-container{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-.login-form{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
 }

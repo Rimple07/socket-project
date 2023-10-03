@@ -1,75 +1,114 @@
-import React from "react";
+import React, { useState } from "react";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { Button, Checkbox, Form, Input } from "antd";
 import "./SignIn.css";
+import { useNavigate } from "react-router-dom";
 
 const SignInForm = () => {
-	const onFinish = (values) => {
-		console.log("Received values of form: ", values);
-	};
-	return (
-		<div className="signin-form">
-			<div> </div>
-			<div>
-				{" "}
-				<h6> It Is A Long Established Fact That</h6> <h3> Login your account</h3>{" "}
-			</div>
-			<Form
-				name="normal_login"
-				className="login-form"
-				initialValues={{
-					remember: true,
-				}}
-				onFinish={onFinish}
-			>
-				<div className="username-container">
-					{" "}
-					<h5> Username</h5>
-					<Form.Item
-						name="username"
-						rules={[
-							{
-								required: true,
-								message: "Please input your Username!",
-							},
-						]}
-					>
-						<Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" />
-					</Form.Item>{" "}
-				</div>
+  const [signinValue, setSigninValue] = useState({
+    email: "",
+    password: "",
+  });
+  const navigate = useNavigate();
 
-				<div className="password-container">
-					{" "}
-					<h5> Password</h5>
-					<Form.Item
-						name="password"
-						rules={[
-							{
-								required: true,
-								message: "Please input your Password!",
-							},
-						]}
-					>
-						<Input prefix={<LockOutlined className="site-form-item-icon" />} type="password" placeholder="Password" />
-					</Form.Item>{" "}
-				</div>
+  const onFinish = (e) => {
+    console.log("event", e);
+    navigate("/dashboard");
+  };
 
-				<Form.Item>
-					<Form.Item>
-						<Button type="primary" htmlType="submit" className="login-form-button">
-							Log in
-						</Button>
-					</Form.Item>
-					<Form.Item name="remember" valuePropName="checked" noStyle>
-						<Checkbox>Remember me</Checkbox>
-					</Form.Item>
+  const onChange = (e) => {
+    const { name, value } = e.target;
+    setSigninValue((prev) => ({ ...prev, [name]: value }));
+  };
 
-					<a className="login-form-forgot" href="">
-						Forgot password
-					</a>
-				</Form.Item>
-			</Form>{" "}
-		</div>
-	);
+  console.log("signinValue", signinValue);
+
+  return (
+    <div className="signin-form">
+      <div className="logo-container"> </div>
+      <div className="headings-container-login">
+        {" "}
+        <h6 className="main-login-heading">
+          {" "}
+          It Is A Long Established Fact That
+        </h6>{" "}
+        <h3 className="login-heading"> Login your account</h3>{" "}
+        <Form
+          name="normal_login"
+          className="login-form"
+          initialValues={{
+            remember: true,
+          }}
+          onFinish={(e) => onFinish(e)}
+        >
+          <div className="username-container">
+            {" "}
+            <h5 className="headings"> Username</h5>
+            <Form.Item
+              name="email"
+              value={signinValue.email}
+              rules={[
+                {
+                  required: true,
+                  message: "Please input your Username!",
+                },
+              ]}
+            >
+              <Input
+                name="email"
+                prefix={<UserOutlined className="site-form-item-icon" />}
+                placeholder="Username"
+                onChange={(e) => onChange(e)}
+              />
+            </Form.Item>{" "}
+          </div>
+
+          <div className="password-container">
+            {" "}
+            <h5 className="headings"> Password</h5>
+            <Form.Item
+              name="password"
+              rules={[
+                {
+                  required: true,
+                  message: "Please input your Password!",
+                },
+              ]}
+            >
+              <Input.Password
+                name="password"
+                prefix={<LockOutlined className="site-form-item-icon" />}
+                placeholder="Password"
+                onChange={(e) => onChange(e)}
+                value={signinValue.email}
+              />
+            </Form.Item>{" "}
+          </div>
+
+          <Form.Item>
+            <Form.Item>
+              <Button
+                type="primary"
+                htmlType="submit"
+                className="login-form-button"
+              >
+                Login
+              </Button>
+            </Form.Item>
+          </Form.Item>
+          <div className="remember-forgot-container">
+            {" "}
+            <Form.Item name="remember" valuePropName="checked" noStyle>
+              <Checkbox>Remember me</Checkbox>
+
+              <a className="login-form-forgot" href="">
+                Forgot password?
+              </a>
+            </Form.Item>
+          </div>
+        </Form>{" "}
+      </div>
+    </div>
+  );
 };
 export default SignInForm;
